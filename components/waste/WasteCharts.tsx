@@ -66,7 +66,7 @@ export function WasteByDayChart({ logs, startDate, endDate }: WasteChartsProps) 
   )
 }
 
-export function WasteByReasonChart({ logs }: { logs: WasteLog[] }) {
+export function WasteByReasonChart({ logs }: WasteChartsProps) {
   const grouped: Record<string, number> = {}
   logs.forEach((l) => {
     grouped[l.reason] = (grouped[l.reason] ?? 0) + l.estimated_cost
@@ -103,7 +103,7 @@ export function WasteByReasonChart({ logs }: { logs: WasteLog[] }) {
   )
 }
 
-export function WasteByCategoryChart({ logs }: { logs: WasteLog[] }) {
+export function WasteByCategoryChart({ logs }: WasteChartsProps) {
   const grouped: Record<string, number> = {}
   logs.forEach((l) => {
     const cat = l.inventory_items?.category ?? 'Other'
